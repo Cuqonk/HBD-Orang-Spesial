@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You, With Love ❤️</title>
+
+<style>
+/* =========================
+   RESPONSIVE HP & LAPTOP
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Laptop / PC */
+.card {
+    width: min(720px, 90vw);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+
+    .card {
+        width: 92vw;
+        padding: 30px 24px;
+    }
+
+    h1 {
+        font-size: clamp(38px, 8vw, 60px);
+    }
+
+    h2 {
+        font-size: clamp(28px, 7vw, 45px);
+    }
+}
+
+
+/* HP */
+@media (max-width: 600px) {
+
+    .screen {
+        padding: 15px;
+    }
+
+    .card {
+        width: 94vw;
+        max-height: 92vh;
+        padding: 25px 18px;
+        border-radius: 25px;
+    }
+
+    h1 {
+        font-size: 38px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .small {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    button {
+        width: 100%;
+        max-width: 280px;
+        padding: 14px 20px;
+        font-size: 14px;
+    }
+
+    .photo-wrap {
+        width: 175px;
+        height: 220px;
+    }
+
+    .letter {
+        max-height: 43vh;
+        padding: 18px;
+        font-size: 14px;
+    }
+
+    .cake {
+        transform: scale(.82);
+        margin-top: -5px;
+        margin-bottom: -10px;
+    }
+
+    .final {
+        font-size: 27px;
+    }
+
+    .signature {
+        font-size: 14px;
+    }
+}
+
+
+/* HP kecil */
+@media (max-width: 380px) {
+
+    .card {
+        padding: 22px 14px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    .photo-wrap {
+        width: 150px;
+        height: 190px;
+    }
+
+    .cake {
+        transform: scale(.72);
+        margin-top: -15px;
+        margin-bottom: -25px;
+    }
+
+    .letter {
+        max-height: 38vh;
+    }
+
+    .final {
+        font-size: 24px;
+    }
+}
+
+
+/* Layar landscape HP */
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .screen {
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+
+    .card {
+        margin: 15px auto;
+        max-height: none;
+    }
+
+    .photo-wrap {
+        width: 130px;
+        height: 160px;
+    }
+
+    .cake {
+        transform: scale(.65);
+        margin-top: -30px;
+        margin-bottom: -50px;
+    }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden}
+body{
+  font-family:"Segoe UI",Arial,sans-serif;
+  color:#fff;
+  background:#090713;
+}
+#stars,#hearts{position:fixed;inset:0;pointer-events:none}
+.star{
+  position:absolute;width:2px;height:2px;background:white;border-radius:50%;
+  animation:twinkle 2s infinite alternate;
+}
+@keyframes twinkle{from{opacity:.15}to{opacity:1;transform:scale(1.8)}}
+
+.screen{
+  position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+  padding:22px;opacity:0;visibility:hidden;transition:opacity 1s ease;
+}
+.screen.active{opacity:1;visibility:visible}
+.card{
+  width:min(720px,94vw);padding:34px 28px;text-align:center;
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.07);backdrop-filter:blur(18px);
+  border-radius:30px;box-shadow:0 25px 80px rgba(0,0,0,.5);
+}
+.small{color:#e7c8dc;letter-spacing:3px;text-transform:uppercase;font-size:12px}
+h1{font-size:clamp(38px,8vw,72px);margin:15px 0;
+  background:linear-gradient(90deg,#fff,#ff9acb,#fff);
+  -webkit-background-clip:text;color:transparent}
+h2{font-size:clamp(28px,6vw,48px);margin:12px 0}
+p{line-height:1.8;color:#f9eaf2}
+button{
+  margin-top:25px;border:0;border-radius:999px;padding:14px 28px;
+  color:#fff;background:linear-gradient(90deg,#d94f91,#ff8fc1);
+  font-size:15px;cursor:pointer;box-shadow:0 10px 30px rgba(255,90,160,.25);
+  transition:.25s
+}
+button:hover{transform:translateY(-3px) scale(1.03)}
+.fadeText{animation:fadeUp 1.4s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+.photo-wrap{
+  width:210px;height:260px;margin:0 auto 18px;border-radius:110px 110px 35px 35px;
+  padding:5px;background:linear-gradient(145deg,#ffd3e7,#9b6b8e,#f8b5d2);
+  box-shadow:0 20px 50px rgba(255,128,187,.25);
+  animation:photoFloat 4s ease-in-out infinite;
+}
+.photo-wrap img{
+  width:100%;height:100%;object-fit:cover;object-position:center top;
+  border-radius:105px 105px 30px 30px;display:block
+}
+@keyframes photoFloat{50%{transform:translateY(-8px)}}
+
+.letter{
+  text-align:left;max-height:48vh;overflow:auto;padding:24px;
+  border-radius:20px;background:rgba(0,0,0,.18);line-height:1.9;
+  color:#ffeef6;white-space:pre-line
+}
+.cursor{border-right:2px solid #ffacd0;animation:blink .7s infinite}
+@keyframes blink{50%{border-color:transparent}}
+
+.cake{position:relative;width:220px;height:190px;margin:15px auto 5px}
+.cake-base{
+  position:absolute;bottom:15px;left:15px;width:190px;height:95px;
+  background:linear-gradient(#d67da7,#a94e7d);border-radius:12px 12px 25px 25px;
+  box-shadow:inset 0 12px rgba(255,255,255,.12),0 18px 30px rgba(0,0,0,.25)
+}
+.cream{position:absolute;top:73px;width:220px;height:23px;background:#fff0f7;
+  border-radius:50%}
+.drip{position:absolute;top:80px;width:220px;height:25px;background:#fff0f7;
+  border-radius:10%;}
+.candle {
+    position: absolute;
+    bottom: 108px;
+    left: 101px;
+    width: 18px;
+    height: 55px;
+    border-radius: 5px;
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #fff,
+            #fff 7px,
+            #ff8fbd 7px,
+            #ff8fbd 14px
+        );
+    box-shadow:
+        inset -3px 0 rgba(0,0,0,.08),
+        0 5px 10px rgba(0,0,0,.2);
+}
+
+/* Sumbu */
+.candle::after {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 7px;
+    width: 4px;
+    height: 10px;
+    background: #3a2630;
+    border-radius: 50%;
+}
+
+/* Api */
+.flame {
+    position: absolute;
+    top: -38px;
+    left: 1px;
+    width: 17px;
+    height: 29px;
+    border-radius: 50% 50% 50% 50%;
+    background: linear-gradient(
+        to top,
+        #ff8a00,
+        #ffd45c 55%,
+        #fff3a0
+    );
+
+    transform-origin: bottom center;
+
+    box-shadow:
+        0 0 8px #ffb52e,
+        0 0 20px #ff9d32,
+        0 0 40px rgba(255, 165, 50, .6);
+
+    animation: flameMove .45s infinite alternate ease-in-out;
+}
+
+/* Api kecil di tengah */
+.flame::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    bottom: 4px;
+    width: 7px;
+    height: 15px;
+    border-radius: 50%;
+    background: #fff8c7;
+}
+
+/* Gerakan api */
+@keyframes flameMove {
+
+    0% {
+        transform:
+            rotate(-5deg)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            rotate(4deg)
+            scale(1.08, .95);
+    }
+
+    100% {
+        transform:
+            rotate(-3deg)
+            scale(.94, 1.08);
+    }
+}
+
+.candle-glow {
+    position: absolute;
+    bottom: 120px;
+    left: 87px;
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 180, 60, .18);
+
+    filter: blur(10px);
+
+    animation: candleGlow .6s infinite alternate;
+}
+
+.smoke {
+    position: absolute;
+
+    bottom: 142px;
+    left: 104px;
+
+    width: 12px;
+    height: 12px;
+
+    background: rgba(255,255,255,.45);
+
+    border-radius: 50%;
+
+    filter: blur(3px);
+
+    animation: smokeUp 2s ease-out forwards;
+}
+
+@keyframes smokeUp {
+
+    0% {
+        transform:
+            translate(0, 0)
+            scale(.5);
+
+        opacity: .7;
+    }
+
+    50% {
+        transform:
+            translate(-8px, -35px)
+            scale(1.8);
+
+        opacity: .4;
+    }
+
+    100% {
+        transform:
+            translate(15px, -75px)
+            scale(2.8);
+
+        opacity: 0;
+    }
+}
+m
+@keyframes blowFlame {
+
+    0% {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+
+    25% {
+        transform: translateX(8px) rotate(15deg) scale(.9, 1.1);
+    }
+
+    50% {
+        transform: translateX(-10px) rotate(-18deg) scale(1.1, .8);
+    }
+
+    75% {
+        transform: translateX(14px) rotate(25deg) scale(.7, 1.2);
+        opacity: .7;
+    }
+
+    100% {
+        transform: translateX(25px) scale(.2);
+        opacity: 0;
+    }
+}
+
+.final{
+  font-size:clamp(25px,5vw,43px);line-height:1.4;
+  background:linear-gradient(90deg,#fff,#ffafd1,#fff);
+  -webkit-background-clip:text;color:transparent
+}
+.signature{margin-top:22px;color:#ffc4dc;font-style:italic}
+
+.floating{
+  position:fixed;bottom:-40px;font-size:20px;animation:float 7s linear forwards;
+}
+@keyframes float{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+
+.confetti{
+  position:fixed;top:-20px;width:8px;height:14px;animation:confetti 4s linear forwards;
+}
+@keyframes confetti{to{transform:translateY(110vh) rotate(720deg);opacity:.1}}
+
+#musicState{margin-top:12px;font-size:11px;color:#caa8ba}
+</style>
+</head>
+
+<body>
+<div id="stars"></div>
+<div id="hearts"></div>
+<audio id="bgMusic" loop>
+    <source src="Bukti.m4a" type="audio/mpeg">
+</audio>
+
+<!-- 1. OPENING -->
+<section class="screen active" id="s1">
+  <div class="card fadeText">
+    <div class="small">a little surprise for you</div>
+    <h1>Hey, You... ✨</h1>
+    <p>Aku punya sesuatu yang ingin aku sampaikan malam ini.</p>
+    <button onclick="playMusicAndNext()">Buka kejutan 💌</button>
+  </div>
+</section>
+
+<!-- 2. PHOTO -->
+<section class="screen" id="s2">
+  <div class="card fadeText">
+    <div class="photo-wrap">
+      <img src="cayang iko.jpeg" alt="Foto spesial">
+    </div>
+    <div class="small">someone special</div>
+    <h2>Untuk kamu, cayaaang acuu❤️</h2>
+    <p>Entah kenapa, melihat senyummu selalu membuat semuanya terasa sedikit lebih indah.</p>
+    <button onclick="next(3)">Lanjut ✨</button>
+  </div>
+</section>
+
+<!-- 3. LETTER -->
+<section class="screen" id="s3">
+  <div class="card">
+    <div class="small">a letter for you</div>
+    <h2>Dear You 💕</h2>
+    <div class="letter" id="letter"></div>
+    <button id="letterBtn" onclick="startLetter()">Buka surat 💌</button>
+  </div>
+</section>
+
+<!-- 4. CAKE -->
+<section class="screen" id="s4">
+  <div class="card fadeText">
+    <div class="small">make a wish</div>
+    <h2>It's Your Birthday! 🎂</h2>
+    <div class="cake">
+      <div class="candle-glow"></div>
+      <div class="candle">
+        <div class="flame"></div>
+      </div>
+      <div class="cream"></div>
+      <div class="drip"></div>
+      <div class="cake-base"></div>
+    </div>
+    <p>Pejamkan mata sebentar, lalu buat satu permintaan.</p>
+    <button onclick="blowCandle()">Tiup lilinnya 🕯️</button>
+  </div>
+</section>
+
+<!-- 5. FINAL -->
+<section class="screen" id="s5">
+  <div class="card fadeText">
+    <div class="small">happy birthday</div>
+    <div class="final">
+      Selamat ulang tahun,<br>
+      kamu yang paling spesial. ❤️
+    </div>
+    <p style="margin-top:22px">
+      Semoga umur yang baru membawa lebih banyak bahagia,
+      kesehatan, rezeki, ketenangan, dan mimpi-mimpi yang menjadi nyata.
+      <br><br>
+      Terima kasih karena sudah menjadi bagian indah dari cerita ini.
+      Semoga hari ini menjadi salah satu hari yang selalu kamu ingat.
+    </p>
+    <div class="signature">With love, always. 🌷</div>
+    <div id="musicState">♪ little birthday melody</div>
+  </div>
+</section>
+
+<script>
+const screens = document.querySelectorAll(".screen");
+
+function next(n){
+  screens.forEach(s=>s.classList.remove("active"));
+  document.getElementById("s"+n).classList.add("active");
+  if(n===2) createHearts();
+  if(n===5){confetti(); startMelody();}
+}
+
+function makeStars(){
+  const box=document.getElementById("stars");
+  for(let i=0;i<110;i++){
+    const s=document.createElement("span");
+    s.className="star";
+    s.style.left=Math.random()*100+"vw";
+    s.style.top=Math.random()*100+"vh";
+    s.style.animationDelay=Math.random()*2+"s";
+    s.style.opacity=Math.random();
+    box.appendChild(s);
+  }
+}
+makeStars();
+
+function createHearts(){
+  setInterval(()=>{
+    const h=document.createElement("div");
+    h.className="floating";
+    h.textContent=["❤️","💕","💗","✨","🌸"][Math.floor(Math.random()*5)];
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration=(5+Math.random()*4)+"s";
+    document.getElementById("hearts").appendChild(h);
+    setTimeout(()=>h.remove(),9000);
+  },550);
+}
+
+const message = `Selamat ulang tahun, sayang. ❤️
+
+Hari ini adalah hari yang spesial, karena seseorang yang begitu berarti bagiku sedang bertambah satu tahun lagi usianya.
+
+Aku berharap di usia yang baru ini kamu selalu dikelilingi hal-hal baik. Semoga setiap langkahmu dimudahkan, setiap mimpimu diberi jalan, dan setiap lelahmu diganti dengan kebahagiaan.
+
+Kalau suatu hari kamu merasa dunia terlalu berat, semoga kamu selalu ingat bahwa ada seseorang yang ingin melihatmu tersenyum.
+
+Tidak perlu menjadi sempurna untuk menjadi berharga.
+
+Tetaplah menjadi dirimu sendiri. Karena bagiku, kamu yang sekarang sudah sangat istimewa.
+
+Sekali lagi...
+Happy Birthday. 🎂❤️
+
+Semoga senyummu selalu punya alasan untuk tetap ada.`;
+
+let letterStarted=false;
+
+function startLetter(){
+  if(letterStarted)return;
+  letterStarted=true;
+  document.getElementById("letterBtn").style.display="none";
+
+  const el=document.getElementById("letter");
+  let i=0;
+
+  function type(){
+    if(i<message.length){
+      el.innerHTML = message.substring(0,i+1).replace(/\n/g,"<br>");
+      i++;
+      el.scrollTop=el.scrollHeight;
+      setTimeout(type,25);
+    }else{
+      setTimeout(()=>next(4),1200);
+    }
+  }
+  type();
+}
+
+function blowCandle() {
+
+    const flame = document.querySelector(".flame");
+    const glow = document.querySelector(".candle-glow");
+
+    // Api bergoyang kuat sebelum mati
+    flame.style.animation = "blowFlame .7s ease-in-out";
+
+    setTimeout(() => {
+
+        flame.style.display = "none";
+
+        if (glow) {
+            glow.style.display = "none";
+        }
+
+        createSmoke();
+
+    }, 650);
+
+    setTimeout(() => {
+        next(5);
+        confetti();
+    }, 1500);
+}
+
+function createSmoke() {
+
+    const smoke = document.createElement("div");
+
+    smoke.className = "smoke";
+
+    document.querySelector(".cake").appendChild(smoke);
+
+    setTimeout(() => {
+        smoke.remove();
+    }, 2000);
+}
+
+function confetti(){
+  for(let i=0;i<100;i++){
+    const c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"vw";
+    c.style.animationDelay=Math.random()*1.5+"s";
+    c.style.transform=`rotate(${Math.random()*360}deg)`;
+    c.style.background=`hsl(${Math.random()*360},80%,75%)`;
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),5000);
+  }
+}
+
+function playMusicAndNext() {
+    const music = document.getElementById("bgMusic");
+
+    music.volume = 0.85;
+
+    music.play().then(() => {
+        next(2);
+    }).catch((error) => {
+        console.log("Musik gagal diputar:", error);
+        next(2);
+    });
+}
+
+/* Musik sederhana tanpa file eksternal */
+let audioCtx;
+function startMelody(){
+  if(audioCtx)return;
+  audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+
+  const notes=[261.63,293.66,329.63,392,329.63,293.66,261.63,392,440,392,329.63,293.66];
+  notes.forEach((freq,i)=>{
+    const osc=audioCtx.createOscillator();
+    const gain=audioCtx.createGain();
+    osc.type="sine";
+    osc.frequency.value=freq;
+    gain.gain.setValueAtTime(0,audioCtx.currentTime+i*.42);
+    gain.gain.linearRampToValueAtTime(.045,audioCtx.currentTime+i*.42+.03);
+    gain.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+i*.42+.38);
+    osc.connect(gain);gain.connect(audioCtx.destination);
+    osc.start(audioCtx.currentTime+i*.42);
+    osc.stop(audioCtx.currentTime+i*.42+.4);
+  });
+}
+</script>
+</body>
+</html>
